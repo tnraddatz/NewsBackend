@@ -36,4 +36,4 @@ app.use(cors({
 app.use(express.json())
 
 //server 
-app.listen(8000, () => console.log("Listening at http://127.0.0.1:8000"))
+app.listen(8081, () => console.log("Listening at http://127.0.0.1:8081"))
