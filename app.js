@@ -2,11 +2,21 @@
 const express = require('express')
 const app = express()
 var cors = require('cors');
+var env = process.env.NODE_ENV || 'dev';
+port = 8000
+
+if(env != 'dev'){
+  port = 8081
+}
+console.log("Port = " + port)
 
 //Routes 
 var movies = require('./pages/movies')
 var cars = require('./pages/cars')
 var news = require('./pages/news')
+
+//Cors
+app.use(cors());
 
 //Routes
 app.get('/', (req, res) => {
@@ -17,8 +27,6 @@ app.use('/movies', movies)
 app.use('/cars', cars)
 app.use('/news', news)
 
-//Configs
-app.use(cors());
 /*var allowedOrigins =  ['http://localhost:3000',
                         'http://yourapp.com'];
 
@@ -36,4 +44,4 @@ app.use(cors({
 app.use(express.json())
 
 //server 
-app.listen(8081, () => console.log("Listening at http://127.0.0.1:8081"))
+app.listen(port, () => console.log("Listening at http://127.0.0.1:" + port))
