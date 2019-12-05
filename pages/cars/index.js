@@ -25,15 +25,14 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    
     console.log(req.body);
     var car = {
-        name : req.body.brand, 
+        brand : req.body.brand, 
         mpg : req.body.mpg
     };
-    
     cars.push(car);
-    res.send(cars);
+    console.log(cars);
+    res.send(car.name + " was created");
 });
 //End Routes 
 
