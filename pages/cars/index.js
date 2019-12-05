@@ -25,11 +25,13 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+    
+    console.log(req.body);
     var car = {
-        name : req.body.info.name, 
-        mpg : req.body.info.mpg
+        name : req.body.brand, 
+        mpg : req.body.mpg
     };
-
+    
     cars.push(car);
     res.send(cars);
 });
